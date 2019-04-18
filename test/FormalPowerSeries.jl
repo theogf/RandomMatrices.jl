@@ -20,7 +20,7 @@ Z = FormalPowerSeries{TT}(rand(1:MaxRange, n3))
 c = rand(1:MatrixSize) #Size of matrix representation to generate
 
 nzeros = rand(1:MaxSeriesSize)
-@test X == trim(X)
+@test X == RandomMatrices.trim(X)
 XX = deepcopy(X)
 for i=1:nzeros
     idx = rand(1:MaxRange)
@@ -28,7 +28,7 @@ for i=1:nzeros
         XX.c[idx] = convert(TT, 0)
     end
 end
-@test trim(XX) == X
+@test RandomMatrices.trim(XX) == X
 
 #Test addition, p.15, (1.3-4)
 @test X+X == 2X
