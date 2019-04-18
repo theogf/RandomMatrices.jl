@@ -20,6 +20,11 @@
 #By default, always do piecewise correction
 #For most applications where you use the HaarMatrix as a similarity transform
 #it doesn't matter, but better safe than sorry... let the user choose else
+function HaarMatrix(n::Int,beta::Real, correction::Int=1)
+	rand(Haar(beta),n,correction)
+end
+
+
 function rand(W::Haar, n::Int, doCorrection::Int=1)
     beta = W.beta
     M=rand(Ginibre(beta,n))
